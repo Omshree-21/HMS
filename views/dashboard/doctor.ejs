@@ -1,0 +1,12 @@
+<section class="profile-media reveal" style="margin-bottom:16px">
+  <img alt="Doctor caring for patient" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1600&auto=format&fit=crop">
+</section>
+<section>
+  <h2>Doctor Dashboard</h2>
+  <div class="stats row gap">
+    <div class="stat card"><div class="stat-num"><%= stats.pending || 0 %></div><div class="stat-label">Pending</div></div>
+    <div class="stat card"><div class="stat-num"><%= stats.confirmed || 0 %></div><div class="stat-label">Confirmed</div></div>
+    <div class="stat card"><div class="stat-num"><%= stats.completed || 0 %></div><div class="stat-label">Completed</div></div>
+  </div>
+  <p class="mt"><a class="btn" href="/appointments/doctor">View my appointments</a></p>
+</section>

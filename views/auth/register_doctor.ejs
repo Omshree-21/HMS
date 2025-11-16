@@ -1,0 +1,22 @@
+<section class="card" style="max-width:640px;margin:0 auto;">
+  <h2 style="margin-top:0">Join as a Doctor</h2>
+  <p class="muted">Connect with patients and manage appointments efficiently.</p>
+  <form method="post" action="/auth/register/doctor" class="form">
+    <label>Full Name
+      <input type="text" name="name" minlength="2" placeholder="e.g., Dr. Anil Verma" required />
+    </label>
+    <label>Email
+      <input type="email" name="email" placeholder="you@example.com" required />
+    </label>
+    <label>Password
+      <input type="password" name="password" minlength="6" placeholder="Minimum 6 characters" required />
+    </label>
+    <label>Specialization
+      <input type="text" name="specialization" minlength="2" placeholder="e.g., Cardiologist" required />
+    </label>
+    <label>Bio (optional)
+      <textarea name="bio" rows="3" placeholder="Brief about your experience and expertise"></textarea>
+    </label>
+    <button class="btn" type="submit">Register</button>
+  </form>
+</section>

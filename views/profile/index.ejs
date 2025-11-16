@@ -1,0 +1,38 @@
+<section class="grid">
+  <div class="card">
+    <h2>My Profile</h2>
+    <form class="form" method="post" action="/profile">
+      <label>
+        <span>Name</span>
+        <input type="text" name="name" value="<%= profile.name %>" required />
+      </label>
+      <label>
+        <span>Photo URL</span>
+        <input type="url" name="photo" value="<%= profile.photo || '' %>" placeholder="https://..." />
+      </label>
+      <% if (profile.role === 'doctor') { %>
+        <label>
+          <span>Specialization</span>
+          <input type="text" name="specialization" value="<%= profile.specialization || '' %>" />
+        </label>
+        <label>
+          <span>Bio</span>
+          <textarea name="bio" rows="4"><%= profile.bio || '' %></textarea>
+        </label>
+      <% } %>
+      <button class="btn" type="submit">Save Changes</button>
+    </form>
+  </div>
+  <div class="card">
+    <h3>Account</h3>
+    <p class="muted">Email</p>
+    <p><strong><%= profile.email %></strong></p>
+    <p class="muted">Role</p>
+    <p><strong><%= profile.role %></strong></p>
+    <div class="profile-media" style="margin-top:12px">
+      <% if (profile.photo) { %>
+        <img src="<%= profile.photo %>" alt="Profile photo" onerror="this.style.display='none'" />
+      <% } %>
+    </div>
+  </div>
+</section>

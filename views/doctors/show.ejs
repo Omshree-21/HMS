@@ -1,0 +1,13 @@
+<section>
+  <div class="profile-media reveal in">
+    <img alt="<%= doctor.name %>, <%= doctor.specialization %>" src="<%= doctor.photo %>" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='/doctor-placeholder.svg'">
+  </div>
+  <h2><%= doctor.name %></h2>
+  <p class="muted"><%= doctor.specialization %></p>
+  <p><%= doctor.bio || '' %></p>
+  <% if (currentUser && currentUser.role === 'patient') { %>
+    <a class="btn" href="/appointments/new/<%= doctor.id %>">Book Appointment</a>
+  <% } else { %>
+    <p class="muted">Login as a patient to book an appointment.</p>
+  <% } %>
+</section>

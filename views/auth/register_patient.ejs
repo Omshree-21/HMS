@@ -1,0 +1,16 @@
+<section class="card" style="max-width:560px;margin:0 auto;">
+  <h2 style="margin-top:0">Create Patient Account</h2>
+  <p class="muted">Book and manage your medical appointments with trusted doctors.</p>
+  <form method="post" action="/auth/register/patient" class="form">
+    <label>Full Name
+      <input type="text" name="name" minlength="2" placeholder="e.g., Priya Singh" required />
+    </label>
+    <label>Email
+      <input type="email" name="email" placeholder="you@example.com" required />
+    </label>
+    <label>Password
+      <input type="password" name="password" minlength="6" placeholder="Minimum 6 characters" required />
+    </label>
+    <button class="btn" type="submit">Register</button>
+  </form>
+</section>

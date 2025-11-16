@@ -1,0 +1,9 @@
+<section>
+  <h2>Patient Dashboard</h2>
+  <div class="stats row gap">
+    <div class="stat card"><div class="stat-num"><%= stats.pending || 0 %></div><div class="stat-label">Pending</div></div>
+    <div class="stat card"><div class="stat-num"><%= stats.confirmed || 0 %></div><div class="stat-label">Confirmed</div></div>
+    <div class="stat card"><div class="stat-num"><%= stats.completed || 0 %></div><div class="stat-label">Completed</div></div>
+  </div>
+  <p class="mt"><a class="btn" href="/doctors">Book a new appointment</a> <a class="btn secondary" href="/appointments/mine">View my appointments</a></p>
+</section>

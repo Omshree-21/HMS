@@ -1,0 +1,19 @@
+<section class="card">
+  <div class="profile-media reveal in" style="height:220px;margin-bottom:12px">
+    <img alt="<%= doctor.name %>, <%= doctor.specialization %>" src="<%= doctor.photo %>" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='/doctor-placeholder.svg'">
+  </div>
+  <h2>Book Appointment with <%= doctor.name %> (<%= doctor.specialization %>)</h2>
+  <form method="post" action="/appointments/create" class="form">
+    <input type="hidden" name="doctor_id" value="<%= doctor.id %>" />
+    <label>Date
+      <input type="date" name="appt_date" required />
+    </label>
+    <label>Time (HH:MM)
+      <input type="time" name="appt_time" required />
+    </label>
+    <label>Describe your concern
+      <textarea name="concern" rows="5" minlength="10" required placeholder="Describe symptoms, duration, any medications, etc."></textarea>
+    </label>
+    <button class="btn" type="submit">Submit Request</button>
+  </form>
+</section>

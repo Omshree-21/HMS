@@ -1,0 +1,34 @@
+<section>
+  <h2>My Appointments</h2>
+  <% if (!appts.length) { %>
+    <p>No appointments yet. <a href="/doctors">Find a doctor</a>.</p>
+  <% } %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Doctor</th>
+        <th>Specialization</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Status</th>
+        <th>Concern</th>
+        <th>Diagnosis</th>
+        <th>Doctor Comment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% appts.forEach(a => { %>
+        <tr>
+          <td><%= a.doctor_name %></td>
+          <td><%= a.specialization %></td>
+          <td><%= a.appt_date %></td>
+          <td><%= a.appt_time %></td>
+          <td><span class="badge <%= a.status %>"><%= a.status %></span></td>
+          <td class="wrap"><%= a.concern %></td>
+          <td class="wrap"><%= a.diagnosis || '-' %></td>
+          <td class="wrap"><%= a.doctor_comment || '-' %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</section>

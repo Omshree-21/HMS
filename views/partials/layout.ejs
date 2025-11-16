@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hospital Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Open+Sans:wght@400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container row space-between center">
+      <a href="/" class="brand row center">
+        <span class="brand-text">Caring Hands</span>
+      </a>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/doctors">Doctors</a>
+        <% if (!currentUser) { %>
+          <a href="/auth/login">Login</a>
+          <a href="/auth/login?role=doctor">Doctor Login</a>
+          <a class="cta" href="/auth/register/patient">Register</a>
+        <% } else { %>
+          <a href="/dashboard">Dashboard</a>
+          <a href="/profile">Profile</a>
+          <% if (currentUser.role === 'patient') { %>
+            <a href="/appointments/mine">My Appointments</a>
+          <% } %>
+          <% if (currentUser.role === 'doctor') { %>
+            <a href="/appointments/doctor">Appointments</a>
+          <% } %>
+          <form class="inline" action="/auth/logout" method="post">
+            <button type="submit" class="btn small ghost">Logout</button>
+          </form>
+        <% } %>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <% if (success && success.length) { %>
+      <div class="alert success"><%= Array.isArray(success)? success.join('<br/>') : success %></div>
+    <% } %>
+    <% if (error && error.length) { %>
+      <div class="alert error"><%= Array.isArray(error)? error.join('<br/>') : error %></div>
+    <% } %>
+
+    <%- body %>
+  </main>
+
+  <footer class="footer">
+    <div class="container row space-between center">
+      <div>© <%= new Date().getFullYear() %> Caring Hands Hospital</div>
+      <div class="muted">Healing Hearts with Excellence</div>
+    </div>
+  </footer>
+  <script src="/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<section class="hero">
+  <div class="hero-card reveal">
+    <h1>Efficient Care Starts Here</h1>
+    <p class="subtitle">Modern HMS for patients, doctors, and administrators.</p>
+    <div class="hero-actions">
+      <a class="btn" href="/doctors">Find a Doctor</a>
+      <% if (!currentUser) { %>
+        <a class="btn secondary" href="/auth/register/patient">Register as Patient</a>
+        <a class="btn" href="/auth/login">Login</a>
+      <% } else { %>
+        <a class="btn" href="/dashboard">Go to Dashboard</a>
+      <% } %>
+    </div>
+  </div>
+  <div class="hero-media reveal">
+    <img alt="Doctors and patients at hospital" src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1600&auto=format&fit=crop"/>
+  </div>
+</section>
+
+<section class="mt">
+  <div class="grid">
+    <div class="card reveal">
+      <h3>Patient Management</h3>
+      <p class="muted">Register patients, manage history, view records and prescriptions.</p>
+    </div>
+    <div class="card reveal">
+      <h3>Doctor Scheduling</h3>
+      <p class="muted">Assign departments and manage availability for efficient care.</p>
+    </div>
+    <div class="card reveal">
+      <h3>Appointments</h3>
+      <p class="muted">Book, approve, or reschedule appointments seamlessly.</p>
+    </div>
+    <div class="card reveal">
+      <h3>Billing</h3>
+      <p class="muted">Generate invoices and record payments across methods.</p>
+    </div>
+    <div class="card reveal">
+      <h3>Pharmacy</h3>
+      <p class="muted">Manage stock, purchases, issues, and low stock alerts.</p>
+    </div>
+    <div class="card reveal">
+      <h3>Reports & Analytics</h3>
+      <p class="muted">Track KPIs and export reports for data-driven decisions.</p>
+    </div>
+  </div>
+</section>

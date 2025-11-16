@@ -1,0 +1,76 @@
+<section>
+  <h2>My Patients' Appointments</h2>
+  <% if (!appts.length) { %>
+    <p>No appointment requests yet.</p>
+  <% } %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Patient</th>
+        <th>Email</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Status</th>
+        <th>Concern</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% appts.forEach(a => { %>
+        <tr>
+          <td><%= a.patient_name %></td>
+          <td><%= a.patient_email %></td>
+          <td><%= a.appt_date %></td>
+          <td><%= a.appt_time %></td>
+          <td><span class="badge <%= a.status %>"><%= a.status %></span></td>
+          <td class="wrap"><%= a.concern %></td>
+          <td>
+            <button class="btn small secondary" data-open-modal data-modal-type="patient" data-patient-name="<%= a.patient_name %>" data-patient-email="<%= a.patient_email %>" data-concern="<%= a.concern %>">View</button>
+            <button class="btn small" data-open-modal data-modal-type="status" data-appt-id="<%= a.id %>" data-current-status="<%= a.status %>" data-current-diagnosis="<%= a.diagnosis || '' %>" data-current-comment="<%= a.doctor_comment || '' %>">Update</button>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</section>
+
+<!-- Modal Overlay -->
+<section class="modal-overlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-header">Modal</div>
+    <div data-patient-info class="hidden">
+      <p><strong>Name:</strong> <span data-name></span></p>
+      <p><strong>Email:</strong> <span data-email></span></p>
+      <p><strong>Concern:</strong></p>
+      <p class="wrap" data-concern></p>
+      <div class="modal-actions">
+        <button class="btn secondary" data-close-modal type="button">Close</button>
+      </div>
+    </div>
+    <div data-status-form class="hidden">
+      <form method="post" action="">
+        <label>
+          <span>Status</span>
+          <select name="status">
+            <option value="pending">Pending</option>
+            <option value="confirmed">Confirmed</option>
+            <option value="completed">Completed</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+        </label>
+        <label>
+          <span>Diagnosis (optional)</span>
+          <textarea name="diagnosis" rows="3" placeholder="Enter diagnosis..."></textarea>
+        </label>
+        <label>
+          <span>Doctor Comment (optional)</span>
+          <textarea name="doctor_comment" rows="3" placeholder="Any additional notes for the patient..."></textarea>
+        </label>
+        <div class="modal-actions">
+          <button class="btn secondary" data-close-modal type="button">Cancel</button>
+          <button class="btn" type="submit">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+<section class="card" style="max-width:520px;margin:0 auto;">
+  <h2 style="margin-top:0">Welcome Back</h2>
+  <p class="muted">Access your dashboard to manage appointments.</p>
+  <% if (typeof role !== 'undefined' && role === 'doctor') { %>
+    <p class="muted" style="margin-top:8px">
+      Doctor login: use your @<%= domain %> email. Example: firstname.lastname@<%= domain %>
+    </p>
+  <% } %>
+  <form method="post" action="/auth/login" class="form">
+    <label>Email
+      <input type="email" name="email" placeholder="you@example.com" required />
+    </label>
+    <label>Password
+      <input type="password" name="password" minlength="6" placeholder="Your password" required />
+    </label>
+    <button class="btn" type="submit">Login</button>
+  </form>
+  <p class="muted mt">
+    New here? <a href="/auth/register/patient">Register as Patient</a> or
+    <a href="/auth/register/doctor">Register as Doctor</a>
+  </p>
+</section>
